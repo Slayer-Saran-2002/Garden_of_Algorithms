@@ -6,26 +6,26 @@ struct array
 {
 	int A[20];
 	int size;
-	int lentgh;
+	int length;
 };
 int Get(struct array arr,int index){
-	if(index>=0 && index<arr.lentgh)
+	if(index>=0 && index<arr.length)
 	  return arr.A[index];
 }
 void Set(struct array *arr,int index,int value){
-	if(index>=0 && index<arr->lentgh)
+	if(index>=0 && index<arr->length)
 	  arr->A[index]=value;
 }
 int Max(struct array arr){
 	int max=arr.A[0];
-	for(int i=1;i<arr.lentgh;i++)
+	for(int i=1;i<arr.length;i++)
 	  if(arr.A[i]>max)
 	    max=arr.A[i];
 	return max;
 }
 int Min(struct array arr){
 	int min=arr.A[0];
-	for(int i=1;i<arr.lentgh;i++)
+	for(int i=1;i<arr.length;i++)
 	  if(arr.A[i]<min)
 	    min=arr.A[i];
 	return min;

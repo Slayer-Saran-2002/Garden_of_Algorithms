@@ -7,16 +7,16 @@ struct array
 {
 	int A[20];
 	int size;
-	int lentgh;
+	int length;
 };
 
 void Display(struct array arr){
-	for(int i=0;i<arr.lentgh;i++)
+	for(int i=0;i<arr.length;i++)
 			printf("%d ",arr.A[i]);
 }
 
 int Search(struct array arr,int key){
-	for(int i=0;i<arr.lentgh;i++){
+	for(int i=0;i<arr.length;i++){
 		if(key==arr.A[i]){
 			return i;
 		}
@@ -31,7 +31,7 @@ void swap(int *a,int *b){
 }
 
 int ImprovedSearch(struct array *arr,int key){
-	for(int i=0;i<arr->lentgh;i++){
+	for(int i=0;i<arr->length;i++){
 		if(key==arr->A[i]){
 			swap(&arr->A[i],&arr->A[i-1]);  //Transposition
 //			swap(&arr->A[i],&arr->A[0]);    //Bring it to front

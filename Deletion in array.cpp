@@ -7,21 +7,21 @@ struct array
 {
 	int A[20];
 	int size;
-	int lentgh;
+	int length;
 };
 
 void Display(struct array arr){
-	for(int i=0;i<arr.lentgh;i++)
+	for(int i=0;i<arr.length;i++)
 			printf("%d ",arr.A[i]);
 }
 int Delete(struct array *arr,int index){
 	int x=arr->A[index];
 	
-	if(index<arr->lentgh){
-	for(int i=index;i<arr->lentgh-1;i++){
+	if(index<arr->length){
+	for(int i=index;i<arr->length-1;i++){
 		arr->A[i]=arr->A[i+1];
 	}
-	arr->lentgh--;
+	arr->length--;
 	}
 	return x;
 }

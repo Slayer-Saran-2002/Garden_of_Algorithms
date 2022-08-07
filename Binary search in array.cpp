@@ -6,11 +6,11 @@ struct array
 {
 	int A[20];
 	int size;
-	int lentgh;
+	int length;
 };
 //Iterative
 int BinarySearch(struct array arr ,int key){
-	int l=0, h=arr.lentgh-1, mid;
+	int l=0, h=arr.length-1, mid;
 	while(l<=h)
 	{
 		mid=(l+h)/2;
