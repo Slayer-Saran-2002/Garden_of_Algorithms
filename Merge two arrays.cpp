@@ -12,11 +12,7 @@ void Display(struct array arr){
 	for(int i=0;i<arr.length;i++)
 			printf("%d ",arr.A[i]);
 }
-void swap(int *a,int *b){
-	int temp=*a;
-	*a=*b;
-	*b=temp;
-}
+
 struct array Merge(struct array arr1,struct array arr2)
 {
 	int arr3_lentgh=arr1.length+arr2.length;

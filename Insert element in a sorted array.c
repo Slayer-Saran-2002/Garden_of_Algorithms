@@ -14,7 +14,7 @@ void Display(struct array arr){
 			printf("%d ",arr.A[i]);
 }
 void InsertSorted(struct array *arr,int x){
-	if(arr->length==arr->size)
+	if(arr->length==arr->size) // Overflow
 	  return;
 	int i=arr->length-1;
 	while(arr->A[i]>x){

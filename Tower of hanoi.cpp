@@ -11,7 +11,7 @@ void Toh(int n, int A, int B,int C)
 }
 int main()
 {
-	Toh(3,1,2,3);
+	Toh(2,1,2,3);
 
 return 0;
 }
