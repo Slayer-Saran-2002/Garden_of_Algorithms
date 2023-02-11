@@ -9,6 +9,10 @@ int main()
 {
 	int * A;
 	A=createArray(5);
+	A[0]=1;A[1]=4;A[2]=6;A[3]=2;A[4]=5;
+	for(int i=0;i<5;i++){
+	printf("%d ",A[i]);
+	}
 
 return 0;
 }
