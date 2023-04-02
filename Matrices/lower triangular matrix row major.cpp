@@ -17,8 +17,8 @@ void set(struct Matrix *m,int i,int j,int x){
 	 
 }
 int get(struct Matrix m,int i,int j){
-	if(i==j)
-	return m.A[i-1];
+	if(i>=j)
+	return m.A[i*(i-1)/2+(j-1)];
 	else 
 	return 0;	
 }
@@ -52,6 +52,7 @@ int main()
 		} 
 	}
 	display(m);
+	printf("%d",get(m,3,2));
  return 0;
 }
 

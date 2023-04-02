@@ -20,7 +20,7 @@ void FindDuplicateHash(struct array arr,int max){
 		hash.A[arr.A[i]]++;
 	}
 	for(i=0;i<=hash.length;i++){
-		if(hash.A[i]>1)
+		if(hash.A[i]>0)
 		printf(" %d - %d \n",i,hash.A[i]);
 	}
 	/* for finding occurance hash.A[i]>0 condition should be used */
