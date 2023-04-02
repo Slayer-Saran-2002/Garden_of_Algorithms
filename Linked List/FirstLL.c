@@ -219,12 +219,51 @@ void RemoveDuplicates(struct Node* p)
 	}
 	
 }
-
+void Reverse1(struct Node* p)
+{	
+	/* Reversing Elements not feasible way*/
+	int *A,i=0;
+	A=(int *)malloc(sizeof(int)*count(p));
+	struct Node* q=p;
+	while(q!=NULL){
+		A[i]=q->data;
+		q=q->next;
+		i++;
+	}
+	i--;
+	while(p!=NULL){
+		p->data=A[i--];
+		p=p->next;
+	}
+} 
+void Reverse2(struct Node *p)
+{	
+	/*Reversing Links with sliding pointers*/
+	struct Node *q=NULL,*r=NULL;
+	while(p!=NULL){
+		r=q;
+		q=p;
+		p=p->next;
+		q->next=r;
+	}
+	first=q;
+}
+void Reverse3(struct Node *q,struct Node *p)
+{
+	/*Recursive*/
+	if(p){
+		Reverse3(p,p->next);
+		p->next=q;
+	}
+	else{
+		first=q;
+	}
+}
 int main()
 {
-    int A[] = {10, 20, 20, 40, 50,50,50};
+    int A[] = {10, 20, 30, 40, 50,50,60};
     create(A, 7);
-    RemoveDuplicates(first);
+    Reverse3(NULL,first);
 	Display(first);
     
     
