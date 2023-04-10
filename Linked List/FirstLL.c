@@ -23,6 +23,23 @@ void create(int A[], int n)
         last = t;
     }
 }
+void create2(int A[], int n)
+{
+    int i;
+    struct Node *t, *last;
+    second = (struct Node *)malloc(sizeof(struct Node));
+    second->data = A[0];
+    second->next = NULL;
+    last = second;
+    for (i = 1; i < n; i++)
+    {
+        t = (struct Node *)malloc(sizeof(struct Node));
+        t->data = A[i];
+        t->next = NULL;
+        last->next = t;
+        last = t;
+    }
+}
 void Display(struct Node *p)
 {
     while (p != NULL)
@@ -259,12 +276,79 @@ void Reverse3(struct Node *q,struct Node *p)
 		first=q;
 	}
 }
+void Concatinate(struct Node *p,struct Node *q)
+{
+	third=p;
+	while(p->next!=NULL){
+		p=p->next;
+	}
+	p->next=q;
+}
+void Merge(struct Node *p,struct Node *q)
+{
+	struct Node* last;
+	if(p->data < q->data){
+		third=last=p;
+		p=p->next;
+		last->next=NULL;
+	}
+	else{
+		third=last=q;
+		q=q->next;
+		last->next=NULL;
+	}
+	while(p && q)
+	{
+		if(p->data < q->data){
+			last->next=p;
+			last=p;
+			p=p->next;
+			last->next=NULL;
+		}
+		else if(p->data == q->data){
+			last->next=p;
+			last=p;
+			p=p->next;
+			q=q->next;
+			last->next=NULL;
+		}
+		else{
+			last->next=q;
+			last=q;
+			q=q->next;
+			last->next=NULL;
+		}
+	}
+	if(p)last->next=p;
+	if(q)last->next=q;
+}
+int IsLoop(struct Node* f)
+{
+	struct Node *p,*q;
+	p=q=f;
+	do{
+		p=p->next;
+		q=q->next;
+		q=q?q->next:NULL;
+		
+	}while(p && q && p!=q);
+	return p=q?1:0;
+}
 int main()
 {
     int A[] = {10, 20, 30, 40, 50,50,60};
     create(A, 7);
-    Reverse3(NULL,first);
-	Display(first);
+    
+    struct Node *l1, *l2;
+    l1=first->next->next->next;
+    l2=first->next->next->next->next->next;
+    l2->next=l1;
+    printf("\n%d",IsLoop(first));
+/*    int B[] = {1,30,35,45,55,65};
+    create2(B,6);
+    Merge(first,second);
+	  Display(third);
+*/	  
     
     
     return 0;
