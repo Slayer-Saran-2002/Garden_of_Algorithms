@@ -342,13 +342,13 @@ int main()
     struct Node *l1, *l2;
     l1=first->next->next->next;
     l2=first->next->next->next->next->next;
-    l2->next=l1;
+    // l2->next=l1;
     printf("\n%d",IsLoop(first));
-/*    int B[] = {1,30,35,45,55,65};
-    create2(B,6);
-    Merge(first,second);
-	  Display(third);
-*/	  
+    // int B[] = {1,30,35,45,55,65};
+    // create2(B,6);
+    // Merge(first,second);
+	//   Display(third);
+	  
     
     
     return 0;
