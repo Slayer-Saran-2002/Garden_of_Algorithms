@@ -71,23 +71,31 @@ void Iinorder(struct Node *t){
 	}
 }
 void Ipostorder(struct Node *t){
-	struct Stack st1;
-	CreateStack(&st1,100);
-	while(t!=NULL || !Isempty(st1)){
+	struct Stack st;
+	Node *temp;
+	CreateStack(&st,100);
+	while(t!=NULL || !Isempty(st)){
 		if(t){
-			push(&st1,t);
+			push(&st,t);
 			t=t->lchild;
 		}
 		else{
-			t=pop(&st1);
-			t=t->rchild;
+			temp=pop(&st);
+			if(temp>0){
+				push(&st,-temp);
+				t=((Node*)temp)->rchild;
+			}
+			else{
+				printf("%d",((Node*)temp)->data);
+				t=NULL;
+			}
 		}
 	}
 }
 int main(){
 	Tcreate();
 	
-	Iinorder(root);
+	Ipostorder(root);
 	return 0;
 }
 
